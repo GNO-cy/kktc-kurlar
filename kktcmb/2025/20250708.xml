@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='http://mb.gov.ct.tr/kktcmb_kur.xsl'?>
+<KKTCMB_Doviz_Kurlari>
+  <Kur_Tarihi>08/07/2025</Kur_Tarihi>
+  <Duyuru_No>2025/125</Duyuru_No>
+  <Gecerli_Tarih_Araligi>08/07/2025</Gecerli_Tarih_Araligi>
+  <Gecerli_Tarih_Araligi_Str> tarihinde</Gecerli_Tarih_Araligi_Str>
+  <Resmi_Kurlar>
+    <Resmi_Kur>
+      <Birim>1</Birim>
+      <Sembol>USD</Sembol>
+      <Isim>AMERİKAN DOLARI</Isim>
+      <Doviz_Alis>39.90190</Doviz_Alis>
+      <Doviz_Satis>39.97380</Doviz_Satis>
+      <Efektif_Alis>39.87400</Efektif_Alis>
+      <Efektif_Satis>40.03380</Efektif_Satis>
+    </Resmi_Kur>
+    <Resmi_Kur>
+      <Birim>1</Birim>
+      <Sembol>AUD</Sembol>
+      <Isim>AVUSTRALYA DOLARI</Isim>
+      <Doviz_Alis>25.87390</Doviz_Alis>
+      <Doviz_Satis>26.04260</Doviz_Satis>
+      <Efektif_Alis>25.75490</Efektif_Alis>
+      <Efektif_Satis>26.19890</Efektif_Satis>
+    </Resmi_Kur>
+    <Resmi_Kur>
+      <Birim>1</Birim>
+      <Sembol>DKK</Sembol>
+      <Isim>DANİMARKA KRONU</Isim>
+      <Doviz_Alis>6.26680</Doviz_Alis>
+      <Doviz_Satis>6.29760</Doviz_Satis>
+      <Efektif_Alis>6.26240</Efektif_Alis>
+      <Efektif_Satis>6.31210</Efektif_Satis>
+    </Resmi_Kur>
+    <Resmi_Kur>
+      <Birim>1</Birim>
+      <Sembol>EUR</Sembol>
+      <Isim>EURO</Isim>
+      <Doviz_Alis>46.83020</Doviz_Alis>
+      <Doviz_Satis>46.91460</Doviz_Satis>
+      <Efektif_Alis>46.79740</Efektif_Alis>
+      <Efektif_Satis>46.98500</Efektif_Satis>
+    </Resmi_Kur>
+    <Resmi_Kur>
+      <Birim>1</Birim>
+      <Sembol>GBP</Sembol>
+      <Isim>İNGİLİZ STERLİNİ</Isim>
+      <Doviz_Alis>54.19120</Doviz_Alis>
+      <Doviz_Satis>54.47370</Doviz_Satis>
+      <Efektif_Alis>54.15330</Efektif_Alis>
+      <Efektif_Satis>54.55540</Efektif_Satis>
+    </Resmi_Kur>
+    <Resmi_Kur>
+      <Birim>1</Birim>
+      <Sembol>CHF</Sembol>
+      <Isim>İSVİÇRE FRANGI</Isim>
+      <Doviz_Alis>49.96240</Doviz_Alis>
+      <Doviz_Satis>50.28320</Doviz_Satis>
+      <Efektif_Alis>49.88750</Efektif_Alis>
+      <Efektif_Satis>50.35860</Efektif_Satis>
+    </Resmi_Kur>
+    <Resmi_Kur>
+      <Birim>1</Birim>
+      <Sembol>SEK</Sembol>
+      <Isim>İSVEÇ KRONU</Isim>
+      <Doviz_Alis>4.17100</Doviz_Alis>
+      <Doviz_Satis>4.21420</Doviz_Satis>
+      <Efektif_Alis>4.16810</Efektif_Alis>
+      <Efektif_Satis>4.22390</Efektif_Satis>
+    </Resmi_Kur>
+    <Resmi_Kur>
+      <Birim>1</Birim>
+      <Sembol>CAD</Sembol>
+      <Isim>KANADA DOLARI</Isim>
+      <Doviz_Alis>29.16080</Doviz_Alis>
+      <Doviz_Satis>29.29230</Doviz_Satis>
+      <Efektif_Alis>29.05290</Efektif_Alis>
+      <Efektif_Satis>29.40360</Efektif_Satis>
+    </Resmi_Kur>
+    <Resmi_Kur>
+      <Birim>1</Birim>
+      <Sembol>KWD</Sembol>
+      <Isim>KUVEYT DİNARI</Isim>
+      <Doviz_Alis>129.95490</Doviz_Alis>
+      <Doviz_Satis>131.65540</Doviz_Satis>
+      <Efektif_Alis>128.00560</Efektif_Alis>
+      <Efektif_Satis>133.63020</Efektif_Satis>
+    </Resmi_Kur>
+    <Resmi_Kur>
+      <Birim>1</Birim>
+      <Sembol>NOK</Sembol>
+      <Isim>NORVEÇ KRONU</Isim>
+      <Doviz_Alis>3.93080</Doviz_Alis>
+      <Doviz_Satis>3.95720</Doviz_Satis>
+      <Efektif_Alis>3.92800</Efektif_Alis>
+      <Efektif_Satis>3.96630</Efektif_Satis>
+    </Resmi_Kur>
+    <Resmi_Kur>
+      <Birim>1</Birim>
+      <Sembol>SAR</Sembol>
+      <Isim>SUUDİ ARABİSTAN RİYALİ</Isim>
+      <Doviz_Alis>10.63940</Doviz_Alis>
+      <Doviz_Satis>10.65850</Doviz_Satis>
+      <Efektif_Alis>10.55960</Efektif_Alis>
+      <Efektif_Satis>10.73850</Efektif_Satis>
+    </Resmi_Kur>
+    <Resmi_Kur>
+      <Birim>100</Birim>
+      <Sembol>JPY</Sembol>
+      <Isim>JAPON YENİ</Isim>
+      <Doviz_Alis>27.39150</Doviz_Alis>
+      <Doviz_Satis>27.57290</Doviz_Satis>
+      <Efektif_Alis>27.29020</Efektif_Alis>
+      <Efektif_Satis>27.67770</Efektif_Satis>
+    </Resmi_Kur>
+  </Resmi_Kurlar>
+  <Capraz_Kurlar>
+    <Capraz_Kur>
+      <Sembol_From>USD</Sembol_From>
+      <Doviz_From>1 AMERİKAN DOLARI</Doviz_From>
+      <Capraz_Kur_Deger>1.5385</Capraz_Kur_Deger>
+      <Doviz_To>AVUSTRALYA DOLARI</Doviz_To>
+      <Sembol_To>AUD</Sembol_To>
+    </Capraz_Kur>
+    <Capraz_Kur>
+      <Sembol_From>USD</Sembol_From>
+      <Doviz_From>1 AMERİKAN DOLARI</Doviz_From>
+      <Capraz_Kur_Deger>6.3573</Capraz_Kur_Deger>
+      <Doviz_To>DANİMARKA KRONU</Doviz_To>
+      <Sembol_To>DKK</Sembol_To>
+    </Capraz_Kur>
+    <Capraz_Kur>
+      <Sembol_From>USD</Sembol_From>
+      <Doviz_From>1 AMERİKAN DOLARI</Doviz_From>
+      <Capraz_Kur_Deger>9.5259</Capraz_Kur_Deger>
+      <Doviz_To>İSVEÇ KRONU</Doviz_To>
+      <Sembol_To>SEK</Sembol_To>
+    </Capraz_Kur>
+    <Capraz_Kur>
+      <Sembol_From>USD</Sembol_From>
+      <Doviz_From>1 AMERİKAN DOLARI</Doviz_From>
+      <Capraz_Kur_Deger>0.7968</Capraz_Kur_Deger>
+      <Doviz_To>İSVİÇRE FRANGI</Doviz_To>
+      <Sembol_To>CHF</Sembol_To>
+    </Capraz_Kur>
+    <Capraz_Kur>
+      <Sembol_From>USD</Sembol_From>
+      <Doviz_From>1 AMERİKAN DOLARI</Doviz_From>
+      <Capraz_Kur_Deger>145.3200</Capraz_Kur_Deger>
+      <Doviz_To>JAPON YENİ</Doviz_To>
+      <Sembol_To>JPY</Sembol_To>
+    </Capraz_Kur>
+    <Capraz_Kur>
+      <Sembol_From>USD</Sembol_From>
+      <Doviz_From>1 AMERİKAN DOLARI</Doviz_From>
+      <Capraz_Kur_Deger>1.3665</Capraz_Kur_Deger>
+      <Doviz_To>KANADA DOLARI</Doviz_To>
+      <Sembol_To>CAD</Sembol_To>
+    </Capraz_Kur>
+    <Capraz_Kur>
+      <Sembol_From>USD</Sembol_From>
+      <Doviz_From>1 AMERİKAN DOLARI</Doviz_From>
+      <Capraz_Kur_Deger>10.1300</Capraz_Kur_Deger>
+      <Doviz_To>NORVEÇ KRONU</Doviz_To>
+      <Sembol_To>NOK</Sembol_To>
+    </Capraz_Kur>
+    <Capraz_Kur>
+      <Sembol_From>USD</Sembol_From>
+      <Doviz_From>1 AMERİKAN DOLARI</Doviz_From>
+      <Capraz_Kur_Deger>3.7504</Capraz_Kur_Deger>
+      <Doviz_To>SUUDİ ARABİSTAN RİYALİ</Doviz_To>
+      <Sembol_To>SAR</Sembol_To>
+    </Capraz_Kur>
+    <Capraz_Kur>
+      <Sembol_From>KWD</Sembol_From>
+      <Doviz_From>1 KUVEYT DİNARI</Doviz_From>
+      <Capraz_Kur_Deger>3.2752</Capraz_Kur_Deger>
+      <Doviz_To>AMERİKAN DOLARI</Doviz_To>
+      <Sembol_To>USD</Sembol_To>
+    </Capraz_Kur>
+    <Capraz_Kur>
+      <Sembol_From>GBP</Sembol_From>
+      <Doviz_From>1 İNGİLİZ STERLİNİ</Doviz_From>
+      <Capraz_Kur_Deger>1.3604</Capraz_Kur_Deger>
+      <Doviz_To>AMERİKAN DOLARI</Doviz_To>
+      <Sembol_To>USD</Sembol_To>
+    </Capraz_Kur>
+    <Capraz_Kur>
+      <Sembol_From>EUR</Sembol_From>
+      <Doviz_From>1 EURO</Doviz_From>
+      <Capraz_Kur_Deger>1.1736</Capraz_Kur_Deger>
+      <Doviz_To>AMERİKAN DOLARI</Doviz_To>
+      <Sembol_To>USD</Sembol_To>
+    </Capraz_Kur>
+  </Capraz_Kurlar>
+</KKTCMB_Doviz_Kurlari>
