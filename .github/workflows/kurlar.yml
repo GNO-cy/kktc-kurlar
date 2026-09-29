@@ -1,0 +1,43 @@
+# KKTC Merkez Bankası kur aynası: günde üç kez dün/bugün/yarın.
+# KKTCMB ertesi günün kurunu akşam yayımlar (gözlem: 28.09.2026 19:29 UTC'de
+# 29.09 kuru hazırdı), bu yüzden akşam iki koşu var; sabah koşusu gün içi
+# düzeltmeyi yakalar. Elle çalıştırma: Actions > kurlar > Run workflow
+# (isteğe bağlı "gecmis" = o günden bugüne eksik günleri doldurur).
+name: kurlar
+on:
+  schedule:
+    - cron: '10 5 * * *'
+    - cron: '40 16 * * *'
+    - cron: '30 20 * * *'
+  workflow_dispatch:
+    inputs:
+      gecmis:
+        description: 'Eksik günleri şu tarihten doldur (YYYY-AA-GG, boş = yalnız dün/bugün/yarın)'
+        required: false
+        default: ''
+permissions:
+  contents: write
+concurrency:
+  group: kurlar
+  cancel-in-progress: false
+jobs:
+  getir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: KKTCMB kurlarını getir
+        env:
+          GECMIS: ${{ github.event.inputs.gecmis }}
+        run: |
+          if [ -n "$GECMIS" ]; then node getir.mjs --gecmis "$GECMIS"; else node getir.mjs; fi
+      - name: Değişiklik varsa kaydet
+        run: |
+          git add kktcmb
+          if git diff --cached --quiet; then echo "değişiklik yok"; exit 0; fi
+          git -c user.name="kur-aynasi" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -q -m "KKTCMB kurları $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
