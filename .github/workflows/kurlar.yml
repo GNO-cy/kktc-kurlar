@@ -32,6 +32,7 @@ jobs:
       - name: KKTCMB kurlarını getir
         env:
           GECMIS: ${{ github.event.inputs.gecmis }}
+          KUR_AYNA_ANAHTAR: ${{ secrets.KUR_AYNA_ANAHTAR }}
         run: |
           if [ -n "$GECMIS" ]; then node getir.mjs --gecmis "$GECMIS"; else node getir.mjs; fi
       - name: Değişiklik varsa kaydet

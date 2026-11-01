@@ -12,7 +12,8 @@
 //
 // Kurallar:
 //  - Yalnız <KKTCMB_Doviz_Kurlari> kökü olan yanıt yazılır. "Seçtiğiniz tarihe
-//    ait döviz kurları bulunamadı!" HTML'i (gelecek gün, 2011 öncesi) yazılmaz.
+//    ait döviz kurları bulunamadı!" HTML'i (gelecek gün) yayımlanmamış sayılır;
+//    başka her yanıt hatadır (09.04.2011 öncesinde XML yok, o günler hata görünür).
 //  - Var olan dosya aynıysa dokunulmaz; FARKLIYSA üzerine yazılır ve günlüğe
 //    "DEĞİŞTİ" basılır (git geçmişi eski içeriği korur).
 //  - İstekler arası 1,5 sn (kamu sunucusuna nazik davran).
@@ -23,7 +24,17 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const KOK = path.dirname(fileURLToPath(import.meta.url))
-const KAYNAKLAR = ['https://mb.gov.ct.tr/kur/tarih/', 'https://www.kktcmerkezbankasi.org/kur/tarih/']
+// 02/11/2026: GitHub'ın ABD'deki koşucusu 28/10'dan beri bankaya bağlanamıyor (UND_ERR_CONNECT_TIMEOUT;
+// site Avrupa ve Türkiye'den açılıyor, ABD'den açılmıyor). Actions'ta ilk kaynak bu yüzden GO ERP'nin
+// europe-west1'deki kktcmbKur aracısı: yalnız Bearer anahtarla ve ?gun=YYYYMMDD için bankanın dosyasını
+// baytı baytına döner (go-erp deposu functions/kktcmbKurAyna.js). Anahtar Actions secret'ı KUR_AYNA_ANAHTAR;
+// yalnız aracıya gönderilir, hiçbir yere yazılmaz. Anahtar yoksa (yerelde elle koşu) ya da aracı düşerse
+// banka adresleri doğrudan denenir (KKTC'den açılır).
+const ANAHTAR = (process.env.KUR_AYNA_ANAHTAR || '').trim()
+const ARACI = 'https://europe-west1-go-erp-e79a4.cloudfunctions.net/kktcmbKur?gun='
+const KAYNAKLAR = [...(ANAHTAR ? [ARACI] : []), 'https://mb.gov.ct.tr/kur/tarih/', 'https://www.kktcmerkezbankasi.org/kur/tarih/']
+const UA = 'kktc-kurlar-aynasi (+https://github.com/GNO-cy/kktc-kurlar)'
+const ISTEK_SURESI_MS = 60000               // aracının soğuk başlangıcı + iki banka denemesi buna sığar
 const BEKLE_MS = 1500
 const bekle = ms => new Promise(r => setTimeout(r, ms))
 
@@ -43,13 +54,20 @@ async function cek(iso) {
   const hatalar = []
   for (const kok of KAYNAKLAR) {
     try {
-      const r = await fetch(kok + ad, { headers: { 'User-Agent': 'kktc-kurlar-aynasi (+https://github.com/GNO-cy/kktc-kurlar)' } })
+      const basliklar = { 'User-Agent': UA }
+      if (kok === ARACI) basliklar.Authorization = `Bearer ${ANAHTAR}`
+      const r = await fetch(kok + ad, { headers: basliklar, signal: AbortSignal.timeout(ISTEK_SURESI_MS) })
       const metin = await r.text()
-      if (!r.ok) { hatalar.push(`${kok}: HTTP ${r.status}`); continue }
-      if (!/<KKTCMB_Doviz_Kurlari[\s>]/.test(metin)) return { yok: true }
+      if (!r.ok) { hatalar.push(`${kok}: HTTP ${r.status} ${metin.slice(0, 120).replace(/\s+/g, ' ')}`); continue }
+      if (!/<KKTCMB_Doviz_Kurlari[\s>]/.test(metin)) {
+        // Yalnız bankanın kendi "Seçtiğiniz tarihe ait döviz kurları bulunamadı!" sayfası yayımlanmamış sayılır;
+        // başka bir 200 sayfası (engel, bakım) hatadır, yoksa iş yeşil kalıp dosyalar sessizce eskirdi.
+        if (/kurlar\S* bulunamad/.test(metin)) return { yok: true }
+        hatalar.push(`${kok}: beklenmeyen sayfa ${metin.slice(0, 120).replace(/\s+/g, ' ')}`); continue
+      }
       if (!/<Kur_Tarihi>\d{2}\/\d{2}\/\d{4}<\/Kur_Tarihi>/.test(metin)) { hatalar.push(`${kok}: Kur_Tarihi yok`); continue }
       return { metin }
-    } catch (e) { hatalar.push(`${kok}: ${e?.cause?.code || e?.message}`) }
+    } catch (e) { hatalar.push(`${kok}: ${e?.cause?.code || e?.name || 'hata'}`) }   // message değil: geçersiz başlık hatası anahtarı içerebilir
   }
   return { hata: hatalar.join(' | ') }
 }
